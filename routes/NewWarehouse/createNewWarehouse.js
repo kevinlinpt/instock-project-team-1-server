@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
+const validator = require("node-email-validation")
 
 let savedWarehouses;
 fs.readFile("./data/warehouses.json", "utf-8", (err, data) => {
@@ -15,7 +16,7 @@ fs.readFile("./data/warehouses.json", "utf-8", (err, data) => {
 });
 
 router.post("/", function (req, res) {
-
+const validPhone = req.body.contact.phone.split("").length === 10
   if (
     req.body.name &&
     req.body.address &&
@@ -23,8 +24,8 @@ router.post("/", function (req, res) {
     req.body.country &&
     req.body.contact.name &&
     req.body.contact.position &&
-    req.body.contact.phone &&
-    req.body.contact.email
+   validPhone&&
+    validator.is_email_valid(req.body.contact.email)
   ) {
     savedWarehouses.push(req.body);
 
@@ -38,10 +39,14 @@ router.post("/", function (req, res) {
       }
     );
     return res.status(201).send(savedWarehouses);
-  } else {
+  } else if(!validator.is_email_valid(req.body.contact.email)) {
     return res
       .status(400)
-      .send(`Please provide the appropriate details`);
+      .send(`Please provide the valid email addresss`);
+  } else if(!validPhone) {
+    return res.status(400).send("please provide a valid phone number");
+  }else{
+    return res.status(400).send("Please provide the appropriate details")
   }
 });
 
