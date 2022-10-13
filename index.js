@@ -1,10 +1,11 @@
-console.log("hello world")
+
 const express = require('express')
 const app = express()
 const cors = require("cors");
 const dotenv = require("dotenv");
+const fs = require('fs')
 const newWarehouse = require('./routes/NewWarehouse/createNewWarehouse')
-const warehouses = require('./data/warehouses.json')
+
 dotenv.config();
 
 //pull
@@ -12,14 +13,13 @@ const PORT = process.env.PORT || 8080;
 
 //CORS middleware
 app.use(cors());
-
+app.use(express.static("data"));
 //Middleware to give access to req.body
 app.use(express.json());
 
 //routing for endpoints
- app.get('/', (req,res)=>{
-  res.send(warehouses)
- })
+
+//this route post new warehouses to the warehouses.json file
  app.use('/warehouse/new', newWarehouse)
 // app.put()
 // app.delete()
