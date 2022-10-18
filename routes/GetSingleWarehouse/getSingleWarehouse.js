@@ -2,15 +2,16 @@ const express = require("express")
 const router = express.Router()
 const Warehouses = require("../../data/warehouses.json")
 
-router.get("/:id", function (req, res) {
-  let id = req.params.id
-  if (id) {
-    const singleItem = Warehouses.find((item) => item.id === id)
-    res.send(singleItem)
+router.get("/:name", function (req, res) {
+  let name = req.params.name
+  // let upperName = name.charAt(0).toUpperCase() + name.slice(1)
+  if (name) {
+    const singleWarehouse = Warehouses.find((item) => item.name === name)
+    res.send(singleWarehouse)
   } else {
     return res
       .status(400)
-      .send("The item is not found pls check the id of the item")
+      .send("The warehouse is not found please check the name of the warehouse")
   }
 })
 

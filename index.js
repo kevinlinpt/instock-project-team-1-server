@@ -30,7 +30,7 @@ app.use("/warehouse/new", newWarehouse)
 // app.post();
 // app.put();
 // app.delete();
-app.use("/:id", getSingleWarehouse)
+app.use("/:name", getSingleWarehouse)
 
 app.use("/warehouses", getAllWarehouses)
 
