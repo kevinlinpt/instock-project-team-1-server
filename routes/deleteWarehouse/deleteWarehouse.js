@@ -11,8 +11,20 @@ deleteWarehouse.use((req, res, next) => {
   warehouses = [];
   inventories = [];
   //loads new data on to the arrays
-  warehouses = JSON.parse(fs.readFileSync('./data/warehouses.json'));
-  inventories = JSON.parse(fs.readFileSync('./data/inventories.json'));
+  warehouses = JSON.parse(
+    fs.readFile('./data/warehouses.json', (err) => {
+      if (err) {
+        console.log(err);
+      }
+    })
+  );
+  inventories = JSON.parse(
+    fs.readFile('./data/inventories.json', (err) => {
+      if (err) {
+        console.log(err);
+      }
+    })
+  );
   next();
 });
 
@@ -32,8 +44,16 @@ deleteWarehouse.delete('/:location', (req, res, next) => {
       (inventory) => inventory.warehouseName.toLowerCase() !== warehouseToDelete
     );
     newInventories = JSON.stringify(newInventories);
-    fs.writeFileSync('./data/warehouses.json', newWarehouses);
-    fs.writeFileSync('./data/inventories.json', newInventories);
+    fs.writeFile('./data/warehouses.json', newWarehouses, (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+    fs.writeFile('./data/inventories.json', newInventories, (err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
     res.status(204).send();
   } else {
     res.status(404).send('Warehouse does not exist on DataBase');
