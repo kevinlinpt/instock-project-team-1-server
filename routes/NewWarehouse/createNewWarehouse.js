@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const validator = require("node-email-validation");
-
+const checkValidBody = require("../helper");
 let savedWarehouses;
 fs.readFile("./data/warehouses.json", "utf-8", (err, data) => {
   if (err) {
@@ -16,17 +16,11 @@ fs.readFile("./data/warehouses.json", "utf-8", (err, data) => {
 });
 
 router.post("/", function (req, res) {
+  const isValidBody = checkValidBody(req);
   const validPhone = req.body.contact.phone.split("").length === 10;
-  if (
-    req.body.name &&
-    req.body.address &&
-    req.body.city &&
-    req.body.country &&
-    req.body.contact.name &&
-    req.body.contact.position &&
-    validPhone &&
-    validator.is_email_valid(req.body.contact.email)
-  ) {
+  const validEmail = validator.is_email_valid(req.body.contact.email);
+
+  if (isValidBody && validPhone && validEmail) {
     savedWarehouses.push(req.body);
 
     fs.writeFile(

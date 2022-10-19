@@ -11,6 +11,7 @@ const newWarehouse = require('./routes/NewWarehouse/createNewWarehouse')
 dotenv.config();
 const getAllWarehouses = require("./routes/getallwarehouses/getAllWarehouses");
 const getSingleInventoryItem = require('./routes/GetInventoryItem/GetInventoryItem')
+const editWarehouse = require("./routes/EditWarehouse/EditWarehouse")
 //pull
 const PORT = process.env.PORT || 8080;
 
@@ -25,19 +26,12 @@ app.use(express.json());
 
 //this route post new warehouses to the warehouses.json file
  app.use('/warehouse/new', newWarehouse)
-// app.put()
-// app.delete()
-
-
-// app.get();
-// app.post();
-// app.put();
-// app.delete();
 
 app.use("/warehouses", getAllWarehouses);
 
 app.use('/inventory-item', getSingleInventoryItem)
 
+app.use('/edit-warehouse',editWarehouse)
 app.listen(8080, () => {
   console.log("Server is up and running on port 8080! 🚀");
 });
