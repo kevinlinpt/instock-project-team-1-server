@@ -4,18 +4,23 @@ const app = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
 const fs = require('fs');
-const newWarehouse = require('./routes/NewWarehouse/createNewWarehouse');
-
 dotenv.config();
+
+const newWarehouse = require('./routes/NewWarehouse/createNewWarehouse');
 const getAllWarehouses = require('./routes/getallwarehouses/getAllWarehouses');
 const getSingleInventoryItem = require('./routes/GetInventoryItem/GetInventoryItem');
+const editWarehouse = require('./routes/EditWarehouse/EditWarehouse');
+const getInventoryForWarehouse = require('./routes/GetInventoryForWarehouse/GetInventoryForWarehouse');
 const deleteWarehouses = require('./routes/deleteWarehouse/deleteWarehouse');
+const deleteInventoryItem = require('./routes/DeleteInventoryItem/DeleteInventoryItem');
+
 //pull
 const PORT = process.env.PORT || 8080;
 
 //CORS middleware
 app.use(cors());
 app.use(express.static('data'));
+
 //Middleware to give access to req.body
 app.use(express.json());
 
@@ -23,17 +28,16 @@ app.use(express.json());
 
 //this route post new warehouses to the warehouses.json file
 app.use('/warehouse/new', newWarehouse);
-// app.put()
-// app.delete()
-
-// app.get();
-// app.post();
-// app.put();
-// app.delete();
 
 app.use('/warehouses', getAllWarehouses);
 
 app.use('/inventory-item', getSingleInventoryItem);
+
+app.use('/edit-warehouse', editWarehouse);
+
+app.use('/inventory-item', deleteInventoryItem);
+
+app.use('/inventory', getInventoryForWarehouse);
 
 app.use('/warehouses/delete', deleteWarehouses);
 
