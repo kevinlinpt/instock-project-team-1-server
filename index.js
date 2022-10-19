@@ -10,11 +10,10 @@ const newWarehouse = require('./routes/NewWarehouse/createNewWarehouse')
 const getAllWarehouses = require("./routes/getallwarehouses/getAllWarehouses");
 const getSingleInventoryItem = require('./routes/GetInventoryItem/GetInventoryItem')
 
+const postInventoryItem = require('./routes/PostInventoryItemForWarehouse/PostInventoryItemForWarehouse')
 const editWarehouse = require("./routes/EditWarehouse/EditWarehouse")
-
 const getInventoryForWarehouse = require('./routes/GetInventoryForWarehouse/GetInventoryForWarehouse')
 const deleteInventoryItem = require('./routes/DeleteInventoryItem/DeleteInventoryItem')
-
 
 //pull
 const PORT = process.env.PORT || 8080;
@@ -36,13 +35,15 @@ app.use("/warehouses", getAllWarehouses);
 
 app.use('/inventory-item', getSingleInventoryItem)
 
-
-app.use('/edit-warehouse',editWarehouse)
+app.use('/inventory-item', postInventoryItem)
 
 app.use('/inventory-item', deleteInventoryItem)
 
 app.use('/inventory', getInventoryForWarehouse)
 
+app.use('/inventory', getInventoryForWarehouse)
+
+app.use('/edit-warehouse',editWarehouse)
 
 app.listen(8080, () => {
   console.log("Server is up and running on port 8080! 🚀");
