@@ -2,19 +2,27 @@ const express = require("express");
 const router = express.Router();
 const fs = require("fs");
 const checkBody = require('../helper')
+
 let allWarehouses;
+
 fs.readFile("./data/warehouses.json", (err, data) => {
   allWarehouses = JSON.parse(data);
 });
 
+
 router.post("/", function (req, res) {
     // this function will check all the values are present on the body 
   const isValidBody = checkBody(req)
+
   if (isValidBody) {
+
     const restWarehouses = allWarehouses.filter(
       (warehouses) => warehouses.id !== req.body.id
     );
+
     restWarehouses.push(req.body);
+    
+
     fs.writeFile(
       "./data/warehouses.json",
       JSON.stringify(restWarehouses, null, 2),

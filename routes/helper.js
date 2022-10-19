@@ -1,4 +1,4 @@
-function checkRequrestBodyForEditWarehouse(req){
+function checkRequestBody(req){
     const isValid =
       req.body &&
       req.body.id &&
@@ -6,10 +6,11 @@ function checkRequrestBodyForEditWarehouse(req){
       req.body.address &&
       req.body.city &&
       req.body.country &&
+      req.body.contact &&
       req.body.contact.name &&
       req.body.contact.position &&
       req.body.contact.phone &&
       req.body.contact.email;
       return isValid
 }
-module.exports = checkRequrestBodyForEditWarehouse
+module.exports = checkRequestBody
