@@ -9,7 +9,9 @@ dotenv.config();
 const newWarehouse = require('./routes/NewWarehouse/createNewWarehouse')
 const getAllWarehouses = require("./routes/getallwarehouses/getAllWarehouses");
 const getSingleInventoryItem = require('./routes/GetInventoryItem/GetInventoryItem')
+const postInventoryItem = require('./routes/PostInventoryItemForWarehouse/PostInventoryItemForWarehouse')
 const getInventoryForWarehouse = require('./routes/GetInventoryForWarehouse/GetInventoryForWarehouse')
+
 
 //pull
 const PORT = process.env.PORT || 8080;
@@ -39,8 +41,9 @@ app.use("/warehouses", getAllWarehouses);
 
 app.use('/inventory-item', getSingleInventoryItem)
 
-app.use('/inventory', getInventoryForWarehouse)
+app.use('/inventory-item', postInventoryItem)
 
+app.use('/inventory', getInventoryForWarehouse)
 
 app.listen(8080, () => {
   console.log("Server is up and running on port 8080! 🚀");
