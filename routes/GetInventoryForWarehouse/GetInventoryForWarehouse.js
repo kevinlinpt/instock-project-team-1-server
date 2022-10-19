@@ -3,7 +3,6 @@ const router = express.Router();
 const inventoryItems = require("../../data/inventories.json");
 
 router.get("/", function (req, res) {
-  console.log(req.body);
   if (req.body.warehouseID) {
     const inventory = inventoryItems.filter(
       (item) => item.warehouseID === req.body.warehouseID
