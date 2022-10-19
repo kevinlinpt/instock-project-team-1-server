@@ -41,7 +41,7 @@ app.use('/inventory-item', deleteInventoryItem)
 
 app.use('/inventory', getInventoryForWarehouse)
 
-app.use('/inventory', getInventoryForWarehouse)
+// app.use('/inventory', getInventoryForWarehouse)
 
 app.use('/edit-warehouse',editWarehouse)
 
