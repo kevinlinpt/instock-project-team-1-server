@@ -5,32 +5,31 @@ const fs = require('fs');
 //define variables
 let warehouses = [];
 let inventories = [];
-
-//middleware to fetch data from JSON file
-deleteWarehouse.use((req, res, next) => {
-  warehouses = [];
-  inventories = [];
-  //loads new data on to the arrays
-  warehouses = JSON.parse(
-    fs.readFile('./data/warehouses.json', (err) => {
-      if (err) {
-        console.log(err);
-      }
-    })
-  );
-  inventories = JSON.parse(
-    fs.readFile('./data/inventories.json', (err) => {
-      if (err) {
-        console.log(err);
-      }
-    })
-  );
-  next();
+fs.readFile('./data/warehouses.json', 'utf-8', (err, data) => {
+  if (err) {
+    console.log(err);
+  }
+  try {
+    warehouses = JSON.parse(data);
+  } catch (error) {
+    console.log(error, 'try catch');
+  }
+});
+fs.readFile('./data/inventories.json', 'utf-8', (err, data) => {
+  if (err) {
+    console.log(err);
+  }
+  try {
+    inventories = JSON.parse(data);
+  } catch (error) {
+    console.log(error, 'try catch');
+  }
 });
 
 //DELETE request
 deleteWarehouse.delete('/:location', (req, res, next) => {
   let warehouseToDelete = req.params.location;
+  console.log(warehouses);
   //checks if requested warehouse exists on database
   let warehouseCheck = warehouses.filter(
     (warehouse) => warehouse.name.toLowerCase() === warehouseToDelete
