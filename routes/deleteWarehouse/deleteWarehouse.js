@@ -29,7 +29,6 @@ fs.readFile('./data/inventories.json', 'utf-8', (err, data) => {
 //DELETE request
 deleteWarehouse.delete('/:location', (req, res, next) => {
   let warehouseToDelete = req.params.location;
-  console.log(warehouses);
   //checks if requested warehouse exists on database
   let warehouseCheck = warehouses.filter(
     (warehouse) => warehouse.name.toLowerCase() === warehouseToDelete
