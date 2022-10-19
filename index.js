@@ -9,7 +9,7 @@ dotenv.config()
 const newWarehouse = require("./routes/NewWarehouse/createNewWarehouse")
 const getAllWarehouses = require("./routes/getallwarehouses/getAllWarehouses")
 const getSingleInventoryItem = require("./routes/GetInventoryItem/GetInventoryItem")
-
+const getSingleWarehouse = require("./routes/GetSingleWarehouse/getSingleWarehouse")
 const editWarehouse = require("./routes/EditWarehouse/EditWarehouse")
 
 const getInventoryForWarehouse = require("./routes/GetInventoryForWarehouse/GetInventoryForWarehouse")
@@ -28,6 +28,8 @@ app.use(express.json())
 //routing for endpoints
 
 //this route post new warehouses to the warehouses.json file
+app.use("/:id", getSingleWarehouse)
+
 app.use("/warehouse/new", newWarehouse)
 
 app.use("/warehouses", getAllWarehouses)
