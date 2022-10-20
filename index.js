@@ -14,7 +14,7 @@ const postInventoryItem = require('./routes/PostInventoryItemForWarehouse/PostIn
 const editWarehouse = require("./routes/EditWarehouse/EditWarehouse")
 const getInventoryForWarehouse = require('./routes/GetInventoryForWarehouse/GetInventoryForWarehouse')
 const deleteInventoryItem = require('./routes/DeleteInventoryItem/DeleteInventoryItem')
-
+const getSingleWarehouseData = require('./routes/GetSingleWarehouseData/GetSingleWarehouseData')
 //pull
 const PORT = process.env.PORT || 8080;
 
@@ -32,7 +32,7 @@ app.use(express.json());
  app.use('/warehouse/new', newWarehouse)
 
 app.use("/warehouses", getAllWarehouses);
-
+app.use('/warehousedata', getSingleWarehouseData)
 app.use('/inventory-item', getSingleInventoryItem)
 
 app.use('/inventory-item', postInventoryItem)
@@ -40,8 +40,6 @@ app.use('/inventory-item', postInventoryItem)
 app.use('/inventory-item', deleteInventoryItem)
 
 app.use('/inventory', getInventoryForWarehouse)
-
-// app.use('/inventory', getInventoryForWarehouse)
 
 app.use('/edit-warehouse',editWarehouse)
 

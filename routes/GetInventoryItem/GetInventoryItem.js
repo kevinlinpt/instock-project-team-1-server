@@ -1,7 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const inventoryItems = require('../../data/inventories.json')
-
+const fs = require('fs')
+let inventoryItems;
+fs.readFile('./data/inventories.json', 'utf-8',(err,data)=>{
+  inventoryItems = JSON.parse(data)
+})
 router.get('/:itemId',function(req,res){
   if(req.params.itemId){
 
