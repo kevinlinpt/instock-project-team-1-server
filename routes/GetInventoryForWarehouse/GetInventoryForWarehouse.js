@@ -1,13 +1,19 @@
 const express = require("express");
 const router = express.Router();
-const inventoryItems = require("../../data/inventories.json");
+const fs = require("fs");
+
+let allInventoryItems;
+
+fs.readFile("./data/inventories.json", (err, data) => {
+  allInventoryItems = JSON.parse(data);
+});
 
 router.get("/", function (req, res) {
   if (req.body.warehouseID) {
-    const inventory = inventoryItems.filter(
+    const inventory = allInventoryItems.filter(
       (item) => item.warehouseID === req.body.warehouseID
     );
-    res.send(inventory);
+    res.status(201).send(inventory);
   } else {
     return res
       .status(400)
