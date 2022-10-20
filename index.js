@@ -9,11 +9,11 @@ dotenv.config();
 const newWarehouse = require('./routes/NewWarehouse/createNewWarehouse');
 const getAllWarehouses = require('./routes/getallwarehouses/getAllWarehouses');
 const getSingleInventoryItem = require('./routes/GetInventoryItem/GetInventoryItem');
+const postInventoryItem = require('./routes/PostInventoryItemForWarehouse/PostInventoryItemForWarehouse');
 const editWarehouse = require('./routes/EditWarehouse/EditWarehouse');
 const getInventoryForWarehouse = require('./routes/GetInventoryForWarehouse/GetInventoryForWarehouse');
 const deleteWarehouses = require('./routes/deleteWarehouse/deleteWarehouse');
 const deleteInventoryItem = require('./routes/DeleteInventoryItem/DeleteInventoryItem');
-
 //pull
 const PORT = process.env.PORT || 8080;
 
@@ -32,6 +32,8 @@ app.use('/warehouse/new', newWarehouse);
 app.use('/warehouses', getAllWarehouses);
 
 app.use('/inventory-item', getSingleInventoryItem);
+
+app.use('/inventory-item', postInventoryItem);
 
 app.use('/edit-warehouse', editWarehouse);
 
