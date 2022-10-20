@@ -11,7 +11,7 @@ const getAllWarehouses = require("./routes/getallwarehouses/getAllWarehouses")
 const getSingleInventoryItem = require("./routes/GetInventoryItem/GetInventoryItem")
 const getSingleWarehouse = require("./routes/GetSingleWarehouse/getSingleWarehouse")
 const editWarehouse = require("./routes/EditWarehouse/EditWarehouse")
-
+const getAllInventory = require("./routes/GetAllInventory/getAllInventory")
 const getInventoryForWarehouse = require("./routes/GetInventoryForWarehouse/GetInventoryForWarehouse")
 const deleteInventoryItem = require("./routes/DeleteInventoryItem/DeleteInventoryItem")
 
@@ -41,6 +41,8 @@ app.use("/edit-warehouse", editWarehouse)
 app.use("/inventory-item", deleteInventoryItem)
 
 app.use("/inventory", getInventoryForWarehouse)
+
+app.use("/inventories", getAllInventory)
 
 app.listen(8080, () => {
   console.log("Server is up and running on port 8080! 🚀")
