@@ -12,6 +12,7 @@ const getSingleWarehouse = require("./routes/GetSingleWarehouse/getSingleWarehou
 const getSingleInventoryItem = require("./routes/GetInventoryItem/GetInventoryItem")
 const postInventoryItem = require("./routes/PostInventoryItemForWarehouse/PostInventoryItemForWarehouse")
 const editWarehouse = require("./routes/EditWarehouse/EditWarehouse")
+const getAllInventory = require("./routes/GetAllInventory/getAllInventory")
 const getInventoryForWarehouse = require("./routes/GetInventoryForWarehouse/GetInventoryForWarehouse")
 const deleteWarehouses = require("./routes/deleteWarehouse/deleteWarehouse")
 const deleteInventoryItem = require("./routes/DeleteInventoryItem/DeleteInventoryItem")
@@ -43,6 +44,8 @@ app.use("/edit-warehouse", editWarehouse)
 app.use("/inventory-item", deleteInventoryItem)
 
 app.use("/inventory", getInventoryForWarehouse)
+
+app.use("/inventories", getAllInventory)
 
 app.use("/warehouses/delete", deleteWarehouses)
 
