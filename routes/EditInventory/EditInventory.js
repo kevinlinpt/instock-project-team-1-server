@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-const checkBody = require("../helper");
+const checkBody = require("../helperinventory");
 
 let allInventory;
 
@@ -10,7 +10,7 @@ fs.readFile("./data/inventories.json", (err, data) => {
 });
 
 //express router ---> validation for body data
-router.post("/", function (req, res) {
+router.post("/edit", function (req, res) {
   const isValidBody = checkBody(req);
 
   if (isValidBody) {
@@ -31,7 +31,7 @@ router.post("/", function (req, res) {
     res
       .status(400)
       .send(
-        "Please provide all the values for inventory in the body of your request"
+        "Please provide all the values for inventory in the body of your request!"
       );
   }
 });
