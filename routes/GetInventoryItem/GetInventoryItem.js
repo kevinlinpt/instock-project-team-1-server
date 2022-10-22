@@ -1,12 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const inventoryItems = require('../../data/inventories.json')
-
-router.get('/',function(req,res){
-  if(req.body.id){
+const fs = require('fs')
+let inventoryItems;
+fs.readFile('./data/inventories.json', 'utf-8',(err,data)=>{
+  inventoryItems = JSON.parse(data)
+})
+router.get('/:itemId',function(req,res){
+  if(req.params.itemId){
 
     const singleItem = inventoryItems.find(
-      (item) => item.id === req.body.id
+      (item) => item.id === req.params.itemId
       );
       res.send(singleItem)
     } else{

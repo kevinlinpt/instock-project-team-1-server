@@ -688,5 +688,25 @@
     "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
+  },
+  {
+    "id": "bbf0e409-42e6-46db-ab3d-19143453a783",
+    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    "warehouseName": "Manhattan",
+    "itemName": "Television",
+    "description": "This is a television",
+    "category": "Electronics",
+    "status": "In Stock",
+    "quantity": "200"
+  },
+  {
+    "id": "5204d507-2e31-478b-94d2-0831d54b7219",
+    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    "warehouseName": "Manhattan",
+    "itemName": "Television",
+    "description": "This is a television",
+    "category": "Electronics",
+    "status": "In Stock",
+    "quantity": "200"
   }
 ]

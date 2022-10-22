@@ -40,11 +40,19 @@ app.use("/inventory-item", editInventoryItem);
 
 app.use("/edit-warehouse", editWarehouse);
 
+app.use("/warehouse/new", newWarehouse);
+
+app.use("/warehousedata", getSingleWarehouseData);
+
+app.use("/inventory-item", getSingleInventoryItem);
+
 app.use("/inventory-item", deleteInventoryItem);
 
 app.use("/inventory", getInventoryForWarehouse);
 
 app.use("/warehouses/delete", deleteWarehouses);
+
+app.use("/inventories", getAllInventory);
 
 app.listen(8080, () => {
   console.log("Server is up and running on port 8080! 🚀");
