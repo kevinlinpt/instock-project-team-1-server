@@ -8,10 +8,11 @@ fs.readFile("./data/inventories.json", (err, data) => {
   allInventoryItems = JSON.parse(data);
 });
 
-router.get("/", function (req, res) {
-  if (req.body.warehouseID) {
+router.get("/:warehouseID", function (req, res) {
+  console.log(req.params.warehouseID);
+  if (req.params.warehouseID) {
     const inventory = allInventoryItems.filter(
-      (item) => item.warehouseID === req.body.warehouseID
+      (item) => item.warehouseID === req.params.warehouseID
     );
     res.status(201).send(inventory);
   } else {

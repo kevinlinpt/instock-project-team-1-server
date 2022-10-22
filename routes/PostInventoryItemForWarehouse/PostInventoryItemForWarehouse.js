@@ -5,11 +5,11 @@ const checkBody = require('../helperInventory')
 
 let allInventoryItems;
 
-fs.readFile("./data/inventories.json", (err, data) => {
+fs.readFile("./data/inventories.json", 'utf-8', (err, data) => {
   allInventoryItems = JSON.parse(data);
 });
 
-router.post("/", function (req, res) {
+router.post("/create", function (req, res) {
     // this function will check all the values are present on the body 
   const isValidBody = checkBody(req)
   if (isValidBody) {
