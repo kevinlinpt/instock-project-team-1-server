@@ -698,15 +698,5 @@
     "category": "Electronics",
     "status": "In Stock",
     "quantity": "200"
-  },
-  {
-    "id": "f3e13429-b5e9-4a50-b01c-75fb07cefded",
-    "itemName": "Snowshow",
-    "description": "Northface Winter Shoe",
-    "category": "Accessories",
-    "status": "In Stock",
-    "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-    "quantity": 0,
-    "warehouseName": "Washington"
   }
 ]
