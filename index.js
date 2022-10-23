@@ -17,6 +17,8 @@ const deleteInventoryItem = require("./routes/DeleteInventoryItem/DeleteInventor
 const editInventoryItem = require("./routes/EditInventory/EditInventory")
 const getSingleWarehouseData = require("./routes/GetSingleWarehouseData/GetSingleWarehouseData")
 const getAllInventory = require("./routes/GetAllInventory/getAllInventory")
+const getSingleWarehouseData = require("./routes/GetSingleWarehouseData/GetSingleWarehouseData")
+
 //pull
 const PORT = process.env.PORT || 8080
 
