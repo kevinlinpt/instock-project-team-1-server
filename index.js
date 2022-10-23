@@ -6,7 +6,7 @@ const dotenv = require("dotenv")
 const fs = require("fs")
 dotenv.config()
 
-const getSingleWarehouseData = require('./routes/GetSingleWarehouseData/GetSingleWarehouseData')
+const getSingleWarehouseData = require("./routes/GetSingleWarehouseData/GetSingleWarehouseData")
 const newWarehouse = require("./routes/NewWarehouse/createNewWarehouse")
 const getAllWarehouses = require("./routes/getallwarehouses/getAllWarehouses")
 const getSingleWarehouse = require("./routes/GetSingleWarehouse/getSingleWarehouse")
@@ -33,10 +33,9 @@ app.use(express.json())
 //this route post new warehouses to the warehouses.json file
 app.use("/warehouse/new", newWarehouse)
 
-app.use("/warehouses", getAllWarehouses);
-app.use('/warehousedata', getSingleWarehouseData)
-app.use('/inventory-item', getSingleInventoryItem)
-
+app.use("/warehouses", getAllWarehouses)
+app.use("/warehousedata", getSingleWarehouseData)
+app.use("/inventory-item", getSingleInventoryItem)
 
 app.use("/inventory-item", getSingleInventoryItem)
 
@@ -44,21 +43,17 @@ app.use("/inventory-item", postInventoryItem)
 
 app.use("/edit-warehouse", editWarehouse)
 
+app.use("/edit-warehouse", editWarehouse)
 
-
-app.use('/edit-warehouse',editWarehouse)
-
-app.use('/inventory', getInventoryForWarehouse);
+app.use("/inventory", getInventoryForWarehouse)
 
 app.use("/inventory-item", deleteInventoryItem)
-
 
 app.use("/inventory", getInventoryForWarehouse)
 
 app.use("/inventories", getAllInventory)
 
 app.use("/warehouses/delete", deleteWarehouses)
-
 
 app.listen(8080, () => {
   console.log("Server is up and running on port 8080! 🚀")
