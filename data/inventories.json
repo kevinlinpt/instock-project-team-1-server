@@ -200,16 +200,6 @@
     "quantity": 0
   },
   {
-    "id": "f3e13429-b5e9-4a50-b01c-75fb07cefded",
-    "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
-    "warehouseName": "Jersey",
-    "itemName": "Gym Bag",
-    "description": "Made out of military-grade synthetic materials, this gym bag is highly durable, water resistant, and easy to clean.",
-    "category": "Gear",
-    "status": "In Stock",
-    "quantity": 565
-  },
-  {
     "id": "3b042051-f18c-4a16-a393-68ceba87277a",
     "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
     "warehouseName": "Jersey",
@@ -708,5 +698,15 @@
     "category": "Electronics",
     "status": "In Stock",
     "quantity": "200"
+  },
+  {
+    "id": "f3e13429-b5e9-4a50-b01c-75fb07cefded",
+    "itemName": "Snowshow",
+    "description": "Northface Winter Shoe",
+    "category": "Accessories",
+    "status": "In Stock",
+    "warehouseID": "90ac3319-70d1-4a51-b91d-ba6c2464408c",
+    "quantity": 0,
+    "warehouseName": "Washington"
   }
 ]
