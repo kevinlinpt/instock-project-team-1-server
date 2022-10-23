@@ -8,7 +8,9 @@ dotenv.config();
 
 const newWarehouse = require("./routes/NewWarehouse/createNewWarehouse");
 const getAllWarehouses = require("./routes/getallwarehouses/getAllWarehouses");
+const getAllInventory = require("./routes/GetAllInventory/getAllInventory");
 const getSingleInventoryItem = require("./routes/GetInventoryItem/GetInventoryItem");
+const getSingleWarehouseData = require("./routes/GetSingleWarehouseData/GetSingleWarehouseData");
 const postInventoryItem = require("./routes/PostInventoryItemForWarehouse/PostInventoryItemForWarehouse");
 const editWarehouse = require("./routes/EditWarehouse/EditWarehouse");
 const getInventoryForWarehouse = require("./routes/GetInventoryForWarehouse/GetInventoryForWarehouse");
