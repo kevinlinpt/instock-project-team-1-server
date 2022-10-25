@@ -3,7 +3,12 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "env": "^0.0.2",
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "node-email-validation": "^1.0.4",
+    "nodemon": "^2.0.20",
+    "uuid": "^9.0.0",
+    "validate-phone-number-node-js": "^0.0.1",
+    "validator": "^13.7.0"
   },
   "name": "instock-project-team-1-server",
   "version": "1.0.0",
