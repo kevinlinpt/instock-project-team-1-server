@@ -1,3 +1,4 @@
+
 const express = require("express")
 const app = express()
 
@@ -18,17 +19,21 @@ const editInventoryItem = require("./routes/EditInventory/EditInventory")
 const getSingleWarehouseData = require("./routes/GetSingleWarehouseData/GetSingleWarehouseData")
 const getAllInventory = require("./routes/GetAllInventory/getAllInventory")
 
+
 //pull
 const PORT = process.env.PORT || 8080
 
 //CORS middleware
+
 app.use(cors())
 app.use(express.static("data"))
+
 
 //Middleware to give access to req.body
 app.use(express.json())
 
 //routing for endpoints
+
 
 //this route post new warehouses to the warehouses.json file
 app.use("/warehouse/new", newWarehouse)
@@ -60,3 +65,4 @@ app.use("/inventories", getAllInventory)
 app.listen(8080, () => {
   console.log("Server is up and running on port 8080! 🚀")
 })
+
